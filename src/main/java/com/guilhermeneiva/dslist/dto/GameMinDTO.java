@@ -1,6 +1,7 @@
 package com.guilhermeneiva.dslist.dto;
 
 import com.guilhermeneiva.dslist.entities.Game;
+import com.guilhermeneiva.dslist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -23,6 +24,15 @@ public class GameMinDTO {
 		shortDescription = entity.getShortDescription();
 	}
 
+	public GameMinDTO(GameMinProjection projection) {
+		super();
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -42,5 +52,5 @@ public class GameMinDTO {
 	public String getShortDescription() {
 		return shortDescription;
 	}
-	
+
 }
